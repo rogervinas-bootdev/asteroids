@@ -23,6 +23,11 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
     while True:
+        for asteroid in asteroids:
+            if asteroid.collides(player):
+                print("Game Over!")
+                return
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return

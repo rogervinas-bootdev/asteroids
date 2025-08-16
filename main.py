@@ -27,6 +27,11 @@ def main():
     Shot.containers = (shots, updatables, drawables)
     while True:
         for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.collides(shot):
+                    asteroid.kill()
+                    shot.kill()
+                    break
             if asteroid.collides(player):
                 print("Game Over!")
                 return
